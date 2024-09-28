@@ -57,17 +57,22 @@ document.getElementById('generate-checklist').addEventListener('click', function
 });
 
 // Funkcja do generowania checklisty
+
+
+
+// Funkcja do generowania checklisty
 function generateChecklist(area, level) {
     let checklistItems;
 
     // Pobranie odpowiednich danych w zależności od wybranego obszaru
     if (area === 'Zarządzanie hasłami') {
         checklistItems = checklistDataPasswordManagement["Zarządzanie hasłami"][level];
-    } else if (area === 'Ochrona przed phishingiem') {
-        checklistItems = checklistDataPhishingProtection["Ochrona przed phishingiem"][level];
-    } else if (area === 'Bezpieczne korzystanie z sieci publicznych') {
-        checklistItems = checklistDataPublicNetworkSecurity["Bezpieczne korzystanie z sieci publicznych"][level];
+    } else if (area === 'Ochrona przed oszustwami e-mail') {
+        checklistItems = checklistDataPhishingProtection["Ochrona przed oszustwami e-mail"][level];
+    } else if (area === 'Bezpieczeństwo w mediach społecznościowych') {
+        checklistItems = checklistDataSocialMediaSecurity["Bezpieczeństwo w mediach społecznościowych"][level];
     } else {
+        
         checklistItems = [];
         console.log("Nieznany obszar: " + area);
     }
@@ -85,7 +90,7 @@ function generateChecklist(area, level) {
         checklistItem.appendChild(title);
 
         const description = document.createElement('p');
-        description.innerText = item.description;
+        description.innerHTML = item.description; // Użycie innerHTML do obsługi linków
         checklistItem.appendChild(description);
 
         checklistContainer.appendChild(checklistItem);
@@ -93,24 +98,6 @@ function generateChecklist(area, level) {
 
     document.getElementById('checklist-section').classList.remove('hidden');
 }
-
-// Funkcja do generowania PDF
-// Funkcja do generowania PDF
-document.getElementById('download-checklist').addEventListener('click', function() {
-    const element = document.getElementById('checklist-section');
-
-    // Użycie domyślnej konfiguracji html2pdf, aby zachować dokładny widok strony
-    html2pdf().from(element).save();
-});
-
-document.getElementById('download-txt').addEventListener('click', function() {
-    const checklistContent = document.getElementById('checklist-container').innerText;
-    const blob = new Blob([checklistContent], { type: 'text/plain' });
-    const link = document.createElement('a');
-    link.href = URL.createObjectURL(blob);
-    link.download = 'checklista.txt';
-    link.click();
-});
 
 // Debug: logowanie, że plik script.js został załadowany poprawnie
 console.log("Plik script.js załadowany poprawnie");

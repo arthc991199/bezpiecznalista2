@@ -3,33 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bezpieczna lista w internecie</title>
+    <title>Lista bezpiecznych zachowań w internecie</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <img src="assets/logo.png" alt="Cyberkurs Online" class="logo">
-        <h1>Bezpieczna lista w internecie</h1>
+        <h1>Lista bezpiecznych zachowań w internecie</h1>
         <p>Spersonalizowana lista najważniejszych zasad w internecie.</p>
     </header>
 
     <section id="form-section">
-        <h2>Wybierz obszar</h2>
+        <h2  style="text-align: center;">Wybierz obszar</h2>
+        <h2> </h2>
         <div id="area-buttons">
             <!-- Trzy aktywne przyciski -->
             <button class="area-btn active" data-area="Zarządzanie hasłami">Zarządzanie hasłami</button>
-            <button class="area-btn active" data-area="Ochrona przed phishingiem">Poczta elektroniczna</button>
+            <button class="area-btn active" data-area="Ochrona przed oszustwami e-mail">Poczta elektroniczna</button>
              
             <!-- Wyszarzone, nieaktywne przyciski -->
-            <button class="area-btn inactive" disabled>Media społecznościowe</button>
-            <button class="area-btn inactive" disabled>Prywatności w sieci</button>
+            <button class="area-btn active" data-area="Bezpieczeństwo w mediach społecznościowych">Media społecznościowe</button>
+            <button class="area-btn inactive" disabled>Prywatności w sieci -wkrótce</button>
             <p></p>
-            <button class="area-btn inactive" disabled>Konta w sieci</button>
-            <button class="area-btn inactive" disabled>Zakupy online i transakcje finansowe</button>
-            <button class="area-btn inactive" disabled>Cyberhigiena</button>
+            <button class="area-btn inactive" disabled>Konta w sieci - wkrótce</button>
+            <button class="area-btn inactive" disabled>Zakupy online i transakcje finansowe - wkrótce</button>
+            <button class="area-btn inactive" disabled>Cyberhigiena - wkrótce</button>
         </div>
 
-        <h2>Poziom szczegółowości</h2>
+        <h2> </h2>
+        <h2  style="text-align: center;">Poziom szczegółowości</h2>
         <div id="level-buttons">
             <button class="level-btn" data-level="podstawowy">Podstawowy</button>
             <button class="level-btn" data-level="rozszerzony">Rozszerzony</button>
@@ -50,21 +52,20 @@
     </section>
 
     <footer>
-        <p>
-            <a href="https://www.linkedin.com/in/artur-markiewicz/" target="_blank">
-                cyberkurs.online – Artur Markiewicz – konsultant, trener – cyberbezpieczeństwo
-            </a>
-        </p>
+
+cyberkurs.online – <a href="https://www.linkedin.com/in/artur-markiewicz/" target="_blank">
+    Artur Markiewicz </a> – konsultant, trener – cyberbezpieczeństwo 
+    <a href="https://github.com/arthc991199/bezpiecznalista2" target="_blank"> public Git
+   
     </footer>
 
  
     <!-- Pliki z radami -->
     <script src="data-password-management.js"></script> <!-- Zarządzanie hasłami -->
-    <script src="data-phishing-protection.js"></script> <!-- Ochrona przed phishingiem -->
-    <script src="data-public-network-security.js"></script> <!-- Bezpieczne korzystanie z sieci publicznych -->
+    <script src="data-phishing-protection.js"></script> <!-- Ochrona przed oszustwami e-mailowymi -->
 
     <!-- Przyszłe pliki z radami -->
-    <!-- <script src="data-social-media-security.js"></script> -->
+    <script src="data-social-media-security.js"></script>
     <!-- <script src="data-online-privacy.js"></script> -->
     <!-- <script src="data-account-management.js"></script> -->
     <!-- <script src="data-online-shopping-security.js"></script> -->

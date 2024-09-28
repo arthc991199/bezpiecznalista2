@@ -18,9 +18,7 @@ body {
     background-color: #f4f4f9;
     color: #333;
     padding: 20px;
-    display: flex;
-    flex-direction: column;
-    width: 90%; /* Zmieniono szerokość na 90% */
+    width: 80%; /* Zmieniono szerokość na 90% */
     margin: auto;
 }
 
@@ -35,6 +33,35 @@ header {
     top: 10px;
     right: 10px;
     height: 80px;
+}
+
+/* Dla węższych ekranów */
+@media (max-width: 768px) {
+    .logo {
+        position: static; /* Usuń absolutne pozycjonowanie */
+        display: block;
+        margin: 10px auto; /* Wyśrodkuj logo */
+        height: 60px; /* Zmniejsz logo, aby lepiej pasowało do mniejszych ekranów */
+    }
+    
+    h1 {
+        font-size: 2rem; /* Zmniejsz tytuł na mniejszych ekranach */
+    }
+}
+
+/* Responsywność dla małych ekranów */
+@media (max-width: 600px) {
+    .checklist-item {
+        flex-direction: column; /* Zamiast dwóch kolumn, zrób jedną pod drugą */
+        align-items: flex-start; /* Wyrównaj tekst do lewej */
+    }
+
+    .checklist-item h3, .checklist-item p {
+        flex: none; /* Usuń ustalone szerokości dla małych ekranów */
+        width: 100%; /* Ustaw pełną szerokość dla obu elementów */
+        margin-bottom: 10px; /* Dodaj odstęp między tytułem a treścią */
+        text-align: left; /* Justowanie do lewej dla lepszej czytelności */
+    }
 }
 
 h1 {
@@ -58,10 +85,12 @@ a:hover {
     text-decoration: underline;
 }
 
-#industry-buttons, #level-buttons {
+/* Wyśrodkowanie przycisków */
+#area-buttons, #level-buttons {
     display: flex;
-    justify-content: center;
-    gap: 15px;
+    justify-content: center; /* Wyśrodkuj przyciski poziomo */
+    gap: 15px; /* Odstęp między przyciskami */
+    flex-wrap: wrap; /* Umożliwia przełamanie przycisków w nowej linii, jeśli jest mało miejsca */
     margin-bottom: 20px;
 }
 
@@ -71,27 +100,54 @@ button {
     border: 1px solid #ccc;
     border-radius: 5px;
     cursor: pointer;
+    background-color: #f0f0f0; /* Neutralny kolor przed wybraniem */
+    color: #333; /* Kolor tekstu */
 }
 
 button.active {
-    background-color: #2980b9;
+    background-color: #2980b9; /* Kolor tła dla aktywnego przycisku */
     color: white;
 }
 
 button.inactive {
-    background-color: #ccc;
+    background-color: #ccc; /* Kolor tła dla nieaktywnych przycisków */
     color: #666;
     cursor: not-allowed;
 }
 
+/* Hover efekt dla aktywnych przycisków */
 button:hover {
     background-color: #3498db;
 }
 
-.hidden {
-    display: none;
+/* Wyłącz hover efekt dla nieaktywnych przycisków */
+button.inactive:hover {
+    background-color: #ccc; /* Nic się nie dzieje dla nieaktywnych */
 }
 
+/* Sekcja formularza */
+#form-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Wyśrodkowanie wszystkich elementów w pionie */
+}
+
+#generate-checklist {
+    margin-top: 20px; /* Dodaj odstęp nad przyciskiem */
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #2980b9;
+    color: white;
+    cursor: pointer;
+}
+
+#generate-checklist:hover {
+    background-color: #3498db;
+}
+
+/* Sekcja checklisty */
 #checklist-section {
     padding: 20px;
     background-color: white;
@@ -126,13 +182,20 @@ button:hover {
     margin: 0;
 }
 
+/* Stopka */
 footer {
+    background-color: #f4f4f4;
     text-align: center;
-    margin-top: auto;
+    padding: 10px;
     font-size: 0.9rem;
     color: #777;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    margin-top: auto;
 }
 
+/* Responsywność */
 @media (max-width: 600px) {
     h1 {
         font-size: 2rem;
@@ -147,53 +210,7 @@ footer {
     }
 }
 
-/* Sekcje strony */
-#form-section, #checklist-section {
-    flex: 1; /* Umożliwia rozciąganie się sekcji na całą dostępną przestrzeń */
-}
-/* Stopka */
-footer {
-    background-color: #f4f4f4;
-    text-align: center;
-    padding: 10px;
-    font-size: 0.9rem;
-    color: #777;
-    width: 100%;
-    position: relative;
-    bottom: 0;
-}
-
-
-#level-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 20px;
-}
-
-.level-btn {
-    padding: 10px 20px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.level-btn.active {
-    background-color: #2980b9;
-    color: white;
-}
-
-.level-btn:hover {
-    background-color: #3498db;
-}
-
-.level-btn.inactive {
-    background-color: #ccc;
-    color: #666;
-    cursor: not-allowed;
-}
-
+/* Stylizacja dla wydruków */
 @media print {
     body {
         width: 100%;
@@ -238,7 +255,7 @@ footer {
     }
 }
 
-
+/* Stylizacja dla przycisku "Udostępnij na Facebooku" */
 #share-facebook {
     background-color: #4267B2;
     color: white;
